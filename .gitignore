@@ -1,0 +1,19 @@
+#Ignore directory 
+
+*.[oa]
+
+
+#Ignore vin backup
+*.swp
+*.swn
+*.swo
+#emacs
+*~
+# macos
+.DS_Store
+
+.srl
+# Eclipse file
+/.project
+/.settings
+/nbproject/private/
