@@ -8,7 +8,10 @@ VERSION := $(shell expr $(VERSION) )
 
 NODEFONY_VERSION = 2.0.3
 
-all:  compose-up 
+all:  install compose 
+
+install:
+	docker pull nodefony/docker-nodefony
 
 image:
 	@echo "";
@@ -16,11 +19,11 @@ image:
 	@echo "#         IMAGE DOCKER NODEFONY         #" ;
 	@echo "#########################################" ;
 	@echo "";
-	docker build  -t nodefony ./$(NODEFONY_VERSION)/
+	docker build  -t nodefony/docker-nodefony ./$(NODEFONY_VERSION)/
 
 run:
 	## WARNING ON MACOS docker host is actually on a VM  for binding  you could use virtualbox's port forwarding feature
-	docker run  --rm -it -p 127.0.0.1:5151:5151  -p 127.0.0.1:5152:5152  -p 1318:1318 -p 1315:1315 -p 1316:1316 --name=nodefony nodefony
+	docker run  --rm -it --publish 127.0.0.1:5151:5151  --publish 127.0.0.1:5152:5152  -p 1318:1318 -p 1315:1315 -p 1316:1316 --name=nodefony nodefony/docker-nodefony
 
 stop:
 	-@docker stop nodefony 
@@ -49,7 +52,6 @@ volume-clean:
 inspect:
 	@docker inspect nodefony
 
-
 clean-all:	clean-container clean  clean-images
 
 clean:		rm network-clean volume-clean
@@ -63,7 +65,7 @@ clean-images:
 
 # COMPOSER 
 
-compose-up:
+compose:
 	@echo "";
 	@echo "#########################################" ;
 	@echo "#       DOCKER COMPOSER NODEFONY        #" ;

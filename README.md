@@ -21,4 +21,19 @@ Notion of real-time context in Action Controller (Websocket).
 Notion of synchronous or asynchronous execution in Action Controller (Promise).
 
 
-## nodefony Docker?
+## How to use image nodefony Docker?
+
+
+### exposing  ports
+
+docker run  --rm -it -p 127.0.0.1:5151:5151  -p 127.0.0.1:5152:5152   --name=nodefony nodefony/docker-nodefony
+
+Then you can hit http://localhost:5151 or https://localhost:5152 in your browser.
+
+
+### exposing  ports ( macosx )
+
+
+[https://docs.docker.com/docker-for-mac/networking](https://docs.docker.com/docker-for-mac/networking)
+
+
