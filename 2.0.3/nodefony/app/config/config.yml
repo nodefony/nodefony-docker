@@ -149,4 +149,4 @@ sequelizeBundle:
       options:
         dialect:       mysql
         host:          docker.nodefony.db
-        port:          '3306'
+        port:          '5106'

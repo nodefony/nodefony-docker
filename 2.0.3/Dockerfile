@@ -12,7 +12,9 @@ FROM  node:6.9
  RUN apt-get -y install mariadb-client-10.0
 
  RUN mkdir /docker
- COPY ["app", "bundles/", "config", "/docker/"]   
+# COPY ["app", "bundles/", "config", "/docker/"]   
+ COPY /nodefony /docker   
+# ENTRYPOINT IN PATH
  COPY entrypoint.sh /usr/local/bin/
  
 
@@ -26,6 +28,6 @@ FROM  node:6.9
 
  EXPOSE 5151 5152 1315 1316 1318
 
- ENV "NODEFONY_ENVIRONMENT" "dev"
+ ENV "NODEFONY_ENVIRONMENT" "prod"
  ENTRYPOINT ["entrypoint.sh"]
 
