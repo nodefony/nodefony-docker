@@ -8,7 +8,7 @@ VERSION := $(shell expr $(VERSION) )
 
 NODEFONY_VERSION = 2.0.3
 
-all:  install compose 
+all:  compose 
 
 install:
 	docker pull nodefony/docker-nodefony

@@ -5,7 +5,12 @@ exit 0 ;
 
 
 echo "Waiting for mysql"
-sleep 10
+
+sleep 15
+
+echo -e "\nmysql ready"
+
+
 #until mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P3306 -uroot -pnodefony &> /dev/null
 #do
 #  printf "."
