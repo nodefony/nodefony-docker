@@ -16,12 +16,14 @@ The Nodefony project is inspired by the PHP Symfony framework, a developer can f
 
 Nodefony is not an exhaustive port of symfony, nodefony add services like:
 
-Web servers (websocket(s), http(s)).
-Notion of real-time context in Action Controller (Websocket).
-Notion of synchronous or asynchronous execution in Action Controller (Promise).
+ - Web servers (websocket(s), http(s)).
+ - Notion of real-time context in Action Controller (Websocket).
+ - Notion of synchronous or asynchronous execution in Action Controller (Promise).
 
 
-## How to use image nodefony Docker?
+# How to use image nodefony Docker ?
+
+docker pull nodefony/docker-nodefony
 
 
 ### exposing  ports
@@ -36,4 +38,21 @@ Then you can hit http://localhost:5151 or https://localhost:5152 in your browser
 
 [https://docs.docker.com/docker-for-mac/networking](https://docs.docker.com/docker-for-mac/networking)
 
+
+
+# How to use image nodefony Docker with composer  ?
+
+In this mode nodefony run with : 
+ 
+	 - nginx in front  
+	 - database  mariadb
+
+```bash
+$ git clone https://github.com/nodefony/nodefony.git
+
+$ cd nodefony
+
+$ make docker-compose
+
+```
 
