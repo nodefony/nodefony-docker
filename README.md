@@ -57,3 +57,24 @@ $ make docker-compose
 
 ```
 
+When done : 
+
+Then you can hit http://localhost:5151 or https://localhost:5152 in your browser.
+
+
+or edit your /etc/hosts  and add entry docker.nodefony
+
+```
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+##
+
+127.0.0.1       localhost docker.nodefony
+
+```
+
+Then you can hit http://docker.nodefony:5151 or https://docker.nodefony:5152 in your browser.
+
+
