@@ -12,11 +12,8 @@ FROM  node:6.9
  RUN apt-get -y install mariadb-client-10.0
 
  RUN mkdir /docker
-# COPY ["app", "bundles/", "config", "/docker/"]   
  COPY /nodefony /docker   
-# ENTRYPOINT IN PATH
  COPY entrypoint.sh /usr/local/bin/
- 
 
  RUN git clone https://github.com/nodefony/nodefony.git
 
