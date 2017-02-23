@@ -44,8 +44,8 @@ Then you can hit http://localhost:5151 or https://localhost:5152 in your browser
 
 In this mode nodefony run with : 
  
- - nginx in front  
- - database  mariadb
+ - docker nginx in front  
+ - docker mariadb database  
 
 
 ```bash
