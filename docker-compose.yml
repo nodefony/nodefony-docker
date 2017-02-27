@@ -19,7 +19,7 @@ services:
     links:
       - "db:docker.nodefony.db"
     environment:
-      - "NODEFONY_ENVIRONMENT=dev"
+      - "NODEFONY_ENVIRONMENT=prod"
       - "NODEFONY_DOCKER_ENVIRONMENT=compose"
 
 # DATABASE
@@ -42,8 +42,8 @@ services:
 #    ports:
 #      - "5106:3306"
     healthcheck:
-      test: ["CMD-SHELL", "/docker/wait.sh"]
-      interval: 10s
+      test: ["CMD-SHELL", "/docker/wait.sh", "docker.nodefony.db:3306"]
+      interval: 15s
       timeout: 5s
       retries: 3
     
