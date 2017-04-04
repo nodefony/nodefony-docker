@@ -18,8 +18,7 @@ FROM  node:6.9
  RUN git clone https://github.com/nodefony/nodefony.git
 
  WORKDIR /nodefony
- RUN git branch --track origin/dev
- RUN git checkout dev
+ RUN git checkout v2.0.3-beta
 
  RUN make docker-build
 

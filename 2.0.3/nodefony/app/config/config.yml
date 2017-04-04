@@ -19,6 +19,7 @@
 #   YAML Reference Parser: http://yaml.org/ypaste/
 
 
+#####################
 #
 #  FRAMEWORK NODEFONY
 #
@@ -26,6 +27,7 @@
 name :                          AppBundle
 locale :                        en_en
 version :                       "Beta"
+
 App:
   projectName:                  "nodefony" 
   projectYear:                  2016 
@@ -33,7 +35,29 @@ App:
   authorName:                   "admin"
   authorMail:                   "admin@nodefony.com"
 
+lang:
+  en_en:                        "english"
+  fr_fr:                        "français"
 
+
+##########
+#
+#  WEBPACK
+#
+# Assets root path is ./Resources/public
+#
+webpack:
+  entry:
+    main:                       "./js/app.js"
+  watch:                        false
+  devtool:                      "source-map"
+  output:
+    filename:                   "./assets/js/app.js"
+    library:                    "app"
+    libraryTarget:              "umd"
+
+
+##################################
 #
 #       OVERRIDE BUNDLE MONITORING
 #
@@ -43,87 +67,11 @@ App:
 monitoringBundle:
   debugBar:                     true
   storage:
-    active:                     true                      
+    active:                     false                      
     requests:                   orm
-  
-#
-#       OVERRIDE BUNDLE REALTIME 
-#
-#       see REALTIME BUNDLE config for more options
-#
-#
-realTimeBundle:
-  services:
-    monitoring:
-      type:                       tcp
-      port:                       1318
-      domain:                     docker.nodefony 
-
-#
-#       OVERRIDE BUNDLE HTTP 
-#
-#       see HTTP BUNDLE config for more options
-#       
-#       // SERVICES
-#       statics files
-#       session
-#       http server
-#       https server
-#       upload 
-#       websocket server 
-#       websocket secure server 
-#
-#
-httpBundle:
-  statics:
-    settings:
-      cache :                     false	
-      maxAge:                     0 
-    web:
-      path:                       "/web/"
-      maxage:                     0                     #30*24*60*60*1000
-
-  upload:
-    tmp_dir:                      "tmp/upload"
-    #max_filesize:                 100000               #in Bytes
-
-  session:
-    start:                        false                          # autostart || false 
-    handler:                      session.storage.sequelize      # session.storage.files | session.storage.sequelize | session.storage.memcached
-    #save_path:                    "./tmp/sessions"              # for session.storage.files only
-    cookie:
-      maxAge:                     0                              # like cookie_lifetime php  =>seconde 
-    memcached:
-      servers:                      
-        nodefony: 
-          location:               docker.nodefony.memcached
-          port:                   11211
-          weight:                 1
 
 
-  http:
-    responseTimeout:              40000
-  https:
-    responseTimeout:              40000
-    certificats:
-      key:                        "config/certificates/server/privkey.pem"
-      cert:                       "config/certificates/server/fullchain.pem"
-      ca:                         "config/certificates/ca/nodefony-root-ca.crt.pem"
-
-#
-#       OVERRIDE BUNDLE ASSETIC
-#
-#       # TO ADD DOMAIN CDN     
-#         CDN:
-#           stylesheets:                  cdn.nodefony.com       
-#           javascripts:                  cdn.nodefony.com
-#           images:                       // not implemted
-#
-asseticBundle:
-  less:
-    compress:                     false
-    cache:                        false 
-
+##################################
 #
 #       OVERRIDE  BUNDLE SEQUELIZE  
 #       
@@ -150,3 +98,63 @@ sequelizeBundle:
         dialect:       mysql
         host:          docker.nodefony.db
         port:          '3306'
+
+
+############################
+#
+#       OVERRIDE BUNDLE HTTP 
+#
+#       see HTTP BUNDLE config for more options
+#       
+#       // SERVICES
+#       statics files
+#       session
+#       http server
+#       https server
+#       upload 
+#       websocket server 
+#       websocket secure server 
+#
+#
+httpBundle:
+  statics:
+    settings:
+      cache :                     false	
+      maxAge:                     0 
+    web:
+      path:                       "/web/"
+      maxage:                     0                             #30*24*60*60*1000
+  upload:
+    tmp_dir:                      "tmp/upload"
+    #max_filesize:                 100000                       #in Bytes
+  session:
+    start:                        false                         # autostart || false 
+    handler:                      session.storage.sequelize     # session.storage.files | session.storage.sequelize | session.storage.memcached
+    #save_path:                    "./tmp/sessions"             # for session.storage.files only
+    cookie:
+      maxAge:                     0                             # like cookie_lifetime php  =>seconde 
+    memcached:
+      servers:                      
+        nodefony: 
+          location:               docker.nodefony.memcached
+          port:                   11211
+          weight:                 1
+  http:
+    responseTimeout:              40000
+  https:
+    responseTimeout:              40000
+ 
+
+################################
+#
+#       OVERRIDE BUNDLE REALTIME 
+#
+#       see REALTIME BUNDLE config for more options
+#
+#
+realTimeBundle:
+  services:
+    monitoring:
+      type:                       tcp
+      port:                       1318
+      domain:                     docker.nodefony 

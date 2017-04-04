@@ -7,8 +7,6 @@ if [ "${NODEFONY_DOCKER_ENVIRONMENT}" == "compose" ]
 then
 	cp /docker/config/config.yml ./config/config.yml
 
-	cp /docker/config/pm2.json ./config/pm2.json
-
 	cp /docker/app/config/config.yml ./app/config/config.yml
 
 	cp /docker/bundles/demoBundle/config.yml ./src/bundles/demoBundle/Resources/config/config.yml
