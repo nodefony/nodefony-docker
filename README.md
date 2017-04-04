@@ -2,7 +2,6 @@
 
 [![dockeri.co](http://dockeri.co/image/nodefony/docker-nodefony)](https://hub.docker.com/r/nodefony/docker-nodefony/)
 
-
 Docker Image for nodefony
 
 
