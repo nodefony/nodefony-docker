@@ -8,17 +8,27 @@ Docker Image for nodefony
 
 ## What is nodefony?
 
-Nodefony is Node.js full-stack web framework.
+Nodefony is Node.js full-stack web framework.  
 
 Nodefony can be used to develop a complete solution to create a web application.
 
 The Nodefony project is inspired by the PHP Symfony framework, a developer can find most of the concepts, configurations and patterns of Symfony framework.
 
-Nodefony is not an exhaustive port of symfony, nodefony add services like:
+Nodefony is not an exhaustive port of symfony !
 
- - Web servers (websocket(s), http(s)).
- - Notion of real-time context in Action Controller (Websocket).
- - Notion of synchronous or asynchronous execution in Action Controller (Promise).
+Nodefony assimilates into the ecosystem of node.js with services like :
+- Web servers (websocket(s), http(s)).
+- Notion of real-time context in Action Controller (Websocket).
+- Notion of synchronous or asynchronous execution in Action Controller (Promise). 
+- [WEBPACK](https://webpack.js.org/) Module bundler for assets management of application .
+- [WATCHER](https://nodejs.org/docs/latest/api/fs.html#fs_fs_watch_filename_options_listener) node.js for auto reload-files in developement mode .
+- [PM2](http://pm2.keymetrics.io/) Production Process Manager for Node.js .
+- [Passport](http://passportjs.org/) Simple, unobtrusive authentication for Node.js .
+
+Now in this version Beta,  Nodefony is evolved to a stable version without major fundamental changes.
+
+Evolution priorities up to the stable version will focus on robustness, unit testing, documentation and security.
+
 
 
 # How to use image nodefony Docker ?
