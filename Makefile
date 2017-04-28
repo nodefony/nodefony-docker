@@ -6,7 +6,7 @@ VERSION := $(subst v,,$(subst .,,$(NODE_VERSION)))
 #$(error $(VERSION))  
 VERSION := $(shell expr $(VERSION) )
 
-NODEFONY_VERSION = 2.1.0
+NODEFONY_VERSION = 2.1.2
 
 all:  compose 
 
