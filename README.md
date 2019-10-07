@@ -65,9 +65,17 @@ Evolution priorities for the next version will focus on robustness, unit testing
 
 docker pull nodefony/docker-nodefony
 
+# ENV (environment variables)
+
+- NODEFONY_ENVIRONMENT=prod
+- NODEFONY_DEBUG=false
+
 ### exposing  ports
 
-docker run --rm -dit -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
+docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
+
+### developement
+docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 -e "NODEFONY_ENVIRONMENT=dev" -e "NODEFONY_DEBUG=true" --name=nodefony nodefony/docker-nodefony
 
 Then you can hit http://localhost:5151 or https://localhost:5152 in your browser.
 

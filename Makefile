@@ -48,8 +48,9 @@ run:
 	## WARNING ON MACOS docker host is actually on a VM  for binding  you could use virtualbox's port forwarding feature
 	#docker run --rm -dit --publish 127.0.0.1:5151:5151  --publish 127.0.0.1:5152:5152  -p 1318:1318 -p 1315:1315 -p 1316:1316 --name=nodefony nodefony/docker-nodefony
 	#docker run --rm -dit -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
-	#docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 -v /Users/christophecamensuli/repository/nodefony-core/app:/nodefony/app --name=nodefony nodefony/docker-nodefony
-	docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
+	#docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 -v /Users/cci/repository/nodefony-core/app:/nodefony/app --name=nodefony nodefony/docker-nodefony
+	#docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 -e "NODEFONY_ENVIRONMENT=dev" -e "NODEFONY_DEBUG=true" --name=nodefony nodefony/docker-nodefony
+	docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318  nodefony/docker-nodefony
 
 stop:
 	-@docker stop nodefony
