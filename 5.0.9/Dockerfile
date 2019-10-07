@@ -4,13 +4,6 @@ FROM  node:latest
  LABEL net.nodefony.version="5.0.9"
 
  RUN apt-get update
- RUN apt-get -y install vim
- RUN apt-get -y install curl
- RUN apt-get -y install sqlite3
- RUN apt-get -y install git
-
- RUN mkdir /docker
- COPY /nodefony /docker
 
  RUN git clone https://github.com/nodefony/nodefony.git
 
@@ -23,9 +16,13 @@ FROM  node:latest
  EXPOSE 5151 5152 1318
 
  ENV "NODEFONY_ENVIRONMENT" "prod"
+ ENV "NODEFONY_DEBUG" "false"
  ENV "NODEFONY_ORM" "sequelize"
 
  COPY entrypoint.sh /usr/local/bin/
  RUN chmod 777 /usr/local/bin/entrypoint.sh \
     && ln -s /usr/local/bin/entrypoint.sh /
+
+ VOLUME ["/nodefony/tmp", "/nodefony/app", "/nodefony/bundles", "/nodefony/config"]
+
  ENTRYPOINT ["entrypoint.sh"]

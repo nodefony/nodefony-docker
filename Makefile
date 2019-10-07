@@ -10,8 +10,31 @@ NODEFONY_VERSION = 5.0.9
 
 all:  compose
 
+clean-image :
+	docker rmi nodefony/docker-nodefony  ;
+
+publish: clean-image image
+	@echo "";
+	@echo "############################################################" ;
+	@echo "#       DOCKER PUBLISH NODEFONY   $(NODEFONY_VERSION)      #" ;
+	@echo "############################################################" ;
+	@echo "";
+
+	#-@$(shell docker rmi $(shell docker images -q) )
+	#docker  images | grep nodefony/docker-nodefony | cut  -d " " -f 18
+	#docker tag nodefony/docker-nodefony nodefony/docker-nodefony:$(NODEFONY_VERSION)
+	#docker tag nodefony/docker-nodefony nodefony/docker-nodefony:latest
+	#@docker images ;
+	#docker login ;
+	#docker push nodefony/docker-nodefony:$(NODEFONY_VERSION)
+	#docker push nodefony/docker-nodefony:latest
+
 install:
 	docker pull nodefony/docker-nodefony
+
+ls-l:
+	#docker exec -it docker-nodefony /bin/bash
+	docker exec -it nodefony  ls -l
 
 image:
 	@echo "";
@@ -24,7 +47,9 @@ image:
 run:
 	## WARNING ON MACOS docker host is actually on a VM  for binding  you could use virtualbox's port forwarding feature
 	#docker run --rm -dit --publish 127.0.0.1:5151:5151  --publish 127.0.0.1:5152:5152  -p 1318:1318 -p 1315:1315 -p 1316:1316 --name=nodefony nodefony/docker-nodefony
-	docker run --rm -dit -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
+	#docker run --rm -dit -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
+	#docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 -v /Users/christophecamensuli/repository/nodefony-core/app:/nodefony/app --name=nodefony nodefony/docker-nodefony
+	docker run --rm -it -p 5152:5152 -p 5151:5151 -p 1318:1318 --name=nodefony nodefony/docker-nodefony
 
 stop:
 	-@docker stop nodefony
@@ -62,7 +87,6 @@ clean-container:
 
 clean-images:
 	-@$(shell docker rmi $(shell docker images -q) )
-
 
 # COMPOSER
 
