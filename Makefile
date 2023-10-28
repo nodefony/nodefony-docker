@@ -6,7 +6,7 @@ VERSION := $(subst v,,$(subst .,,$(NODE_VERSION)))
 #$(error $(VERSION))
 VERSION := $(shell expr $(VERSION) )
 
-NODEFONY_VERSION = 5.0.9
+NODEFONY_VERSION = 7.0.0-beta.21
 
 all:  compose
 
@@ -42,7 +42,7 @@ image:
 	@echo "#         IMAGE DOCKER NODEFONY         #" ;
 	@echo "#########################################" ;
 	@echo "";
-	docker build  -t nodefony/docker-nodefony ./$(NODEFONY_VERSION)/
+	docker build  --no-cache -t nodefony/docker-nodefony ./$(NODEFONY_VERSION)/
 
 run:
 	## WARNING ON MACOS docker host is actually on a VM  for binding  you could use virtualbox's port forwarding feature

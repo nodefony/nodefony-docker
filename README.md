@@ -4,30 +4,26 @@
 
 Docker Image for nodefony
 
-
 ## What is nodefony?
 
-Nodefony is Node.js full-stack web framework.  
+Nodefony is Node.js full-stack web framework.
 
-Nodefony can be used to develop a complete solution to create a web application.
-
-The Nodefony project is inspired by the PHP Symfony framework, a developer can find most of the concepts, configurations and patterns of Symfony framework.
-
-Nodefony is not an exhaustive port of symfony !
+Nodefony can be used to develop a complete solution to create a Fullstack Web Application, Secure Api, or Microservices.
 
 ## <a name="features"></a>Nodefony features :
 
 -   Servers  ([http(s)](https://nodejs.org/dist/latest-v8.x/docs/api/https.html), [websocket(s)](https://github.com/theturtle32/WebSocket-Node), statics, sockjs)
--   [HTTP2](https://nodejs.org/api/http2.html)  http2 ready node module provides an implementation of the HTTP/2 (push server ready).
+-   [HTTP2](https://nodejs.org/api/http2.html) ready node module provides an implementation of the HTTP/2 (push server ready).
 -   Dynamics routing
--   ORM ([Sequelize](http://docs.sequelizejs.com/), [mongoose](http://mongoosejs.com/index.html))
+-   ORM [Sequelize](http://docs.sequelizejs.com)
+-   ORM [mongoose](http://mongoosejs.com/index.html)
 -   Simple Databases Services connections (Redis, Mongo, Elasticsearch, mysql, sqlite ...).
--   MVC templating ([Twig](https://github.com/twigjs/twig.js))
+-   MVC Templating Server Side ([Twig](https://github.com/twigjs/twig.js))
 -   Notion of real-time context in Action Controller (websocket).
 -   Notion of synchronous or asynchronous execution in Action Controller (Promise, Async, Await).
 -   Services Containers, Dependency Injection (Design Patterns)
--   Sessions Manager (ORM, memcached)
--   Authentication Manager (Digest, Basic, oAuth, Local, ldap, jwt, openid)
+-   Sessions Manager (ORM, Memcached)
+-   Authentication Manager (Digest, Basic, oAuth, Local, ldap, jwt, openid, passportjs)
 -   WAF ( Web application firewall )
 -   Cross-Origin Resource Sharing ([CORS](https://www.w3.org/TR/cors/))
 -   Production Management ([PM2](https://github.com/Unitech/pm2/))
@@ -48,17 +44,22 @@ Nodefony is not an exhaustive port of symfony !
 -   [Passport](http://passportjs.org/) Simple, unobtrusive authentication for Node.js .
 -   ~~[Angular](https://github.com/angular/angular-cli) Experimental Bundle Generator ( Angular cli no longer allows the ejection of a webpack config)~~
 
-**Nodefony 5  adds the following features** :
+**Nodefony 7  adds the following features** :
 
--   C++ Addons (Binding in Bundle)
--   Authorisations
--   HTTP2
--   WEBPACK 4  
 -   [React](https://github.com/facebookincubator/create-react-app) Experimental Bundle Generator ( Now an React Project can be merge into a Nodefony Bundle )
 -   [Vue.js](https://vuejs.org) Experimental Bundle Generator ( Now an Vue.js Project can be merge into a Nodefony Bundle )
+-   [Api swagger-ui](https://swagger.io/) ( Documentation Api with swagger and openapi AOS3)
+-   [Api graphql](https://graphql.org/) ( Documentation Api with graphiql)
 
 
 Evolution priorities for the next version will focus on robustness, unit testing, documentation and security.
+
+You can follow Nodefony build with github actions at **<https://github.com/nodefony/nodefony/actions>**
+
+## Nodefony implement modules with CommonJS and ECMAScript 6 ( Class, Inheritance ).
+The development framework will not be ported to typescript, but will wait for the version with type syntax in Emacsript
+
+**[proposal-type-annotations](https://github.com/tc39/proposal-type-annotations)**
 
 
 # How to use image nodefony Docker ?
